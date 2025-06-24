@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thông tin người dùng</title>
+</head>
+<body>
+
+<h2>Chào bạn: <span th:text="${username}"></span>!</h2>
+<p>Vai trò: <strong th:text="${role}"></strong></p>
+<a th:href="@{/logout}">Logout</a>
+
+<h3>Your Tasks:</h3>
+<table border="1" cellpadding="5" style="border-collapse: collapse">
+    <tr>
+        <th>Tiêu đề</th>
+        <th>Mô tả</th>
+        <th>Trạng thái</th>
+    </tr>
+    <tr th:each="task : ${tasks}">
+        <td th:text="${task.title}"></td>
+        <td th:text="${task.description}"></td>
+        <td th:text="${task.status}"></td>
+    </tr>
+</table>
+
+<br>
+<a th:href="@{/tasks}">🔙 Quay lại danh sách tất cả task</a>
+
+</body>
+</html>

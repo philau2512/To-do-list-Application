@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sửa công việc</title>
+</head>
+<body>
+<h2>Sửa công việc</h2>
+
+<form th:action="@{/tasks/update/{id}(id=${task.id})}" method="post" th:object="${task}">
+    <label>Tiêu đề:</label>
+    <input type="text" th:field="*{title}" required/><br>
+
+    <label>Mô tả:</label>
+    <input type="text" th:field="*{description}"/><br>
+
+    <label>Trạng thái:</label>
+    <select th:field="*{status}">
+        <option value="todo">To do</option>
+        <option value="in progress">In progress</option>
+        <option value="done">Done</option>
+    </select><br>
+
+    <button type="submit">Cập nhật</button>
+</form>
+
+<a th:href="@{/tasks}">← Quay lại danh sách</a>
+</body>
+</html>

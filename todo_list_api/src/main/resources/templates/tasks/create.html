@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thêm công việc</title>
+</head>
+<body>
+<h2>Thêm công việc mới</h2>
+
+<form th:action="@{/tasks/create}" method="post" th:object="${task}">
+    <label>Tiêu đề:</label>
+    <input type="text" th:field="*{title}" required /><br>
+
+    <label>Mô tả:</label>
+    <input type="text" th:field="*{description}" /><br>
+
+    <button type="submit">Tạo</button>
+</form>
+
+<a th:href="@{/tasks}">← Quay lại danh sách</a>
+</body>
+</html>

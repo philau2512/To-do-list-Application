@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Danh sách công việc</title>
+</head>
+<body>
+<h2>Danh sách công việc</h2>
+
+<a th:href="@{/tasks/create}">+ Thêm task mới</a> |
+<a th:href="@{/logout}">Đăng xuất</a>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <tr>
+        <th>Tiêu đề</th>
+        <th>Mô tả</th>
+        <th>Trạng thái</th>
+        <th>Hành động</th>
+    </tr>
+    <tr th:each="task : ${tasks}">
+        <td th:text="${task.title}">Tiêu đề</td>
+        <td th:text="${task.description}">Mô tả</td>
+        <td th:text="${task.status}">Trạng thái</td>
+        <td>
+            <a th:href="@{'/tasks/edit/' + ${task.id}}">Sửa</a> |
+            <a th:href="@{'/tasks/delete/' + ${task.id}}"
+               onclick="return confirm('Bạn chắc chắn muốn xóa?');">Xóa</a> |
+            <a th:href="@{'/tasks/toggle-status/' + ${task.id}}">
+                Chuyển trạng thái
+            </a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
