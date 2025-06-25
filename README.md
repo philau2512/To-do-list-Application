@@ -26,7 +26,7 @@ Simple task management application supporting 2 parts:
 - `PATCH /api/tasks/{id}/update`: Update task
 - `DELETE /api/tasks/{id}/delete`: Delete task
 - `PATCH /api/tasks/{id}/toggle-status`: Toggle task status
-- `DELETE /api/tasks/{id}/update`: Update task
+- `PATCH /api/tasks/{id}/update`: Update task
 
 ---
 
